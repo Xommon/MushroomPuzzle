@@ -10,7 +10,8 @@ public class SlimeMold : MonoBehaviour
     public void GrowMold()
     {
         rootAmounts[0]++;
-        Instantiate(rootsPrefab, new Vector2(transform.position.x + (rootAmounts[0] * 50), transform.position.y), Quaternion.identity, transform);
-        Instantiate(rootsPrefab, new Vector2(-(rootAmounts[0] * 50), transform.position.y), Quaternion.identity, transform);
+        var newRoot = Instantiate(rootsPrefab, transform.position, Quaternion.identity, transform);
+        newRoot.GetComponent<RectTransform>().anchoredPosition = new Vector3(rootAmounts[0] * 25, 0, 0);
+        newRoot.GetComponent<Roots>().alpha = 1;
     }
 }

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject gridSquareHoveredOver;
     public GameObject[] allMushrooms;
     public Transform mushroomsHolder;
+    public bool clearToPlace;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Drop mushrooms
-        if (Input.GetMouseButtonDown(0) && heldItem != null)
+        if (Input.GetMouseButtonDown(0) && heldItem != null && clearToPlace)
         {
             heldItem.GetComponent<CanvasGroup>().alpha = 1;
             foreach (Roots root in heldItem.GetComponentsInChildren<Roots>())
