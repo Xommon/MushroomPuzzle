@@ -27,4 +27,20 @@ public class GridSquare : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         image.color = new Color(1, 1, 1, 0f);
         gameManager.gridSquareHoveredOver = null;
     }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Roots")
+        {
+            image.color = new Color(1, 1, 1, 0.1f);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Roots")
+        {
+            image.color = new Color(1, 1, 1, 0f);
+        }
+    }*/
 }

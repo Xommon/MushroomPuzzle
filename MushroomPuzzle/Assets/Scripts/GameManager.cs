@@ -33,7 +33,14 @@ public class GameManager : MonoBehaviour
         // Drop mushrooms
         if (Input.GetMouseButtonDown(0) && heldItem != null)
         {
+            heldItem.GetComponent<CanvasGroup>().alpha = 1;
+            foreach (Roots root in heldItem.GetComponentsInChildren<Roots>())
+            {
+                root.alpha = 1;
+            }
             heldItem = null;
+
+            // Go to next turn
             SlimeMold[] allSlimeMolds = FindObjectsOfType<SlimeMold>();
             foreach (SlimeMold slimeMold in allSlimeMolds)
             {
@@ -43,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Rotate mushrooms
-        if (Input.GetKeyDown(KeyCode.Space) && heldItem != null)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1)) && heldItem != null)
         {
             heldItem.transform.Rotate(new Vector3(0, 0, 90));
         }

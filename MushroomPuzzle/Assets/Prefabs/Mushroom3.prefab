@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6064632885040567670}
   - component: {fileID: 6064632885040567664}
   - component: {fileID: 6064632885040567665}
+  - component: {fileID: 4885121370459064875}
   m_Layer: 5
   m_Name: Mushroom3
   m_TagString: Fungus
@@ -81,6 +82,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4885121370459064875
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6064632885040567671}
+  m_Enabled: 1
+  m_Alpha: 0.75
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1646294021548278749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +208,14 @@ PrefabInstance:
     - target: {fileID: 759198153590202967, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
@@ -318,6 +339,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
 --- !u!224 &2040685894177042416 stripped
@@ -427,6 +456,14 @@ PrefabInstance:
     - target: {fileID: 759198153590202967, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
@@ -538,6 +575,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
 --- !u!224 &6818680495261743107 stripped
@@ -648,6 +693,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
 --- !u!224 &6818680495387020146 stripped
@@ -757,6 +810,14 @@ PrefabInstance:
     - target: {fileID: 759198153590202967, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2095728665119284770}
   - component: {fileID: 2095728665119284772}
   - component: {fileID: 2095728665119284773}
+  - component: {fileID: -6963191540994077605}
   m_Layer: 5
   m_Name: Mushroom2
   m_TagString: Fungus
@@ -79,6 +80,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &-6963191540994077605
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095728665119284771}
+  m_Enabled: 1
+  m_Alpha: 0.75
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1701429015795891869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,6 +194,14 @@ PrefabInstance:
     - target: {fileID: 759198153590202967, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
@@ -292,6 +313,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
 --- !u!224 &1701429015406137197 stripped
@@ -402,6 +431,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
 --- !u!224 &1701429015090492247 stripped
@@ -511,6 +548,14 @@ PrefabInstance:
     - target: {fileID: 759198153590202967, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976829451644507162, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f7250cac2f5214a9972609be21dcd5, type: 3}
