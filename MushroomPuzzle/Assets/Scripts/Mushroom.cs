@@ -5,10 +5,19 @@ using UnityEngine;
 public class Mushroom : MonoBehaviour
 {
     public GameManager gameManager;
+    public bool placed;
 
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+    }
+
+    private void Update()
+    {
+        if (gameManager.heldItem != gameObject)
+        {
+            placed = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

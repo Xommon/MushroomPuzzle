@@ -1,10 +1,16 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+
+    public Slider musicSlider;
+    public Slider soundSlider;
+    public float musicVolume;
+    public float soundVolume;
 
     private void Awake()
     {
@@ -12,7 +18,14 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            if (s.music)
+            {
+                s.source.volume = musicVolume;
+            }
+            else
+            {
+                s.source.volume = soundVolume;
+            }
             s.source.loop = s.loop;
         }
     }
@@ -22,14 +35,31 @@ public class AudioManager : MonoBehaviour
         //Play("Music");
     }
 
-    public void Play(string sound)
+    private void Update()
     {
-        /*Sound s = Array.Find(sounds, sound => sound.name == name);
+        musicVolume = musicSlider.value;
+        soundVolume = soundSlider.value;
+        foreach (Sound s in sounds)
+        {
+            if (s.music)
+            {
+                s.source.volume = musicVolume;
+            }
+            else
+            {
+                s.source.volume = soundVolume;
+            }
+        }
+    }
+
+    public void Play(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound " + s.name + " not found.");
+            Debug.LogWarning("Sound not found.");
             return;
         }
-        s.source.Play();*/
+        s.source.Play();
     }
 }

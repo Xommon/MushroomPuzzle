@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public bool clearToPlace;
     public List<GameObject> mushroomOrder = new List<GameObject>();
     public Image[] mushroomBank;
+    public int score;
+    public int scoreToAdd;
+    public Text scoreText;
 
     void Start()
     {
@@ -29,6 +32,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Close game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        // Update score
+        scoreText.text = score.ToString();
+
         // Move mushroom if being held
         if (heldItem != null && gridSquareHoveredOver != null)
         {
@@ -38,6 +50,10 @@ public class GameManager : MonoBehaviour
         // Drop mushrooms
         if (Input.GetMouseButtonDown(0) && heldItem != null && gridSquareHoveredOver != null && !gridSquareHoveredOver.occupied)
         {
+            // Increase score
+            scoreToAdd += 50;
+            StartCoroutine(AddScore());
+
             FindObjectOfType<AudioManager>().Play("PlantMushroom");
             heldItem.GetComponent<CanvasGroup>().alpha = 1;
             foreach (Roots root in heldItem.GetComponentsInChildren<Roots>())
@@ -45,6 +61,15 @@ public class GameManager : MonoBehaviour
                 root.alpha = 1;
             }
             heldItem = null;
+
+            // Detonate poisonous roots
+            foreach (Roots root in FindObjectsOfType<Roots>())
+            {
+                if (root.evil)
+                {
+                    root.SpreadPoison();
+                }
+            }
 
             // Go to next turn
             SlimeMold[] allSlimeMolds = FindObjectsOfType<SlimeMold>();
@@ -102,9 +127,29 @@ public class GameManager : MonoBehaviour
     public void GenerateMushroomOrder()
     {
         mushroomOrder.Clear();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 15; i++)
         {
             mushroomOrder.Add(allMushrooms[Random.Range(0, allMushrooms.Length)]);
+        }
+    }
+
+    public IEnumerator AddScore()
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (scoreToAdd > 0)
+        {
+            score++;
+            scoreToAdd--;
+        }
+        else if (scoreToAdd < 0)
+        {
+            score--;
+            scoreToAdd++;
+        }
+
+        if (scoreToAdd != 0)
+        {
+            StartCoroutine(AddScore());
         }
     }
 }
