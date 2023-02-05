@@ -57,12 +57,22 @@ public class GameManager : MonoBehaviour
 
             // Remove mushrooms and move to the next
             mushroomOrder.RemoveAt(0);
-            heldItem = Instantiate(mushroomOrder[0], mushroomsHolder);
+            if (mushroomOrder.Count > 0)
+            {
+                heldItem = Instantiate(mushroomOrder[0], mushroomsHolder);
+            }
 
             // Show upcoming mushrooms
             for (int i = 0; i < 3; i++)
             {
-                mushroomBank[i].sprite = mushroomOrder[i].GetComponent<Image>().sprite;
+                if (mushroomOrder.Count == i)
+                {
+                    mushroomBank[i].gameObject.SetActive(false);
+                }
+                else
+                {
+                    mushroomBank[i].sprite = mushroomOrder[i].GetComponent<Image>().sprite;
+                }
             }
         }
 
@@ -92,7 +102,7 @@ public class GameManager : MonoBehaviour
     public void GenerateMushroomOrder()
     {
         mushroomOrder.Clear();
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             mushroomOrder.Add(allMushrooms[Random.Range(0, allMushrooms.Length)]);
         }
