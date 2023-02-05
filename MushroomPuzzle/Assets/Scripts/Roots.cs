@@ -24,7 +24,7 @@ public class Roots : MonoBehaviour
     {
         if (collision.transform.tag == "Background" && alpha == 1)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
 
         if (evil && (collision.transform.tag == "Roots" || collision.transform.tag == "Fungus") && alpha == 1)

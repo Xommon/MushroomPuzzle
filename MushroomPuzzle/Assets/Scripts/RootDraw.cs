@@ -10,7 +10,7 @@ public class RootDraw : MonoBehaviour
     public GameObject cursor;
     public Transform[] startNodes;
 
-    [Range(0,30)]public float maxLength = 5;
+    [Range(0,10)]public float maxLength = 5;
     [Range(0, 5)] public float startRadius = 1;
     [Range(0, 5)] public float rootRadius = 1;
     [Range(0, 5)] public int maxChildIndex = 2;

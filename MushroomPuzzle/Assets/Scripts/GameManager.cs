@@ -7,20 +7,24 @@ public class GameManager : MonoBehaviour
 {
     public int gridSize = 12;
     public int turn = 0;
-    public GameObject gridSquarePrefab;
     public GameObject grid;
     public GameObject[] gridSquares;
     private GridLayoutGroup gridLayout;
     public GameObject heldItem;
-    public GameObject gridSquareHoveredOver;
+    public GridSquare gridSquareHoveredOver;
     public GameObject[] allMushrooms;
     public Transform mushroomsHolder;
     public bool clearToPlace;
+    public List<GameObject> mushroomOrder = new List<GameObject>();
+    public Image[] mushroomBank;
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Music");
         gridLayout = grid.GetComponent<GridLayoutGroup>();
         gridLayout.constraintCount = gridSize;
+        GenerateMushroomOrder();
+        StartGame();
     }
 
     void Update()
@@ -32,8 +36,9 @@ public class GameManager : MonoBehaviour
         }
 
         // Drop mushrooms
-        if (Input.GetMouseButtonDown(0) && heldItem != null && clearToPlace && gridSquareHoveredOver != null)
+        if (Input.GetMouseButtonDown(0) && heldItem != null && gridSquareHoveredOver != null && !gridSquareHoveredOver.occupied)
         {
+            FindObjectOfType<AudioManager>().Play("PlantMushroom");
             heldItem.GetComponent<CanvasGroup>().alpha = 1;
             foreach (Roots root in heldItem.GetComponentsInChildren<Roots>())
             {
@@ -47,7 +52,18 @@ public class GameManager : MonoBehaviour
             {
                 slimeMold.GrowMold();
             }
+            gridSquareHoveredOver.occupied = true;
             turn++;
+
+            // Remove mushrooms and move to the next
+            mushroomOrder.RemoveAt(0);
+            heldItem = Instantiate(mushroomOrder[0], mushroomsHolder);
+
+            // Show upcoming mushrooms
+            for (int i = 0; i < 3; i++)
+            {
+                mushroomBank[i].sprite = mushroomOrder[i].GetComponent<Image>().sprite;
+            }
         }
 
         // Rotate mushrooms
@@ -60,5 +76,25 @@ public class GameManager : MonoBehaviour
     public void CreateMushroomButton()
     {
         heldItem = Instantiate(allMushrooms[Random.Range(0, allMushrooms.Length)], mushroomsHolder);
+    }
+
+    public void StartGame()
+    {
+        heldItem = Instantiate(mushroomOrder[0], mushroomsHolder);
+
+        // Show upcoming mushrooms
+        for (int i = 0; i < 3; i++)
+        {
+            mushroomBank[i].sprite = mushroomOrder[i].GetComponent<Image>().sprite;
+        }
+    }
+
+    public void GenerateMushroomOrder()
+    {
+        mushroomOrder.Clear();
+        for (int i = 0; i < 20; i++)
+        {
+            mushroomOrder.Add(allMushrooms[Random.Range(0, allMushrooms.Length)]);
+        }
     }
 }
