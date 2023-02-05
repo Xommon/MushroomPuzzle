@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameManager gameManager;
+
+    private void Start()
     {
-        
+        gameManager = FindObjectOfType<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.transform.tag == "Fungus")
+        {
+            gameManager.clearToPlace = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.tag != "Fungus")
+        {
+            gameManager.clearToPlace = true;
+        }
     }
 }

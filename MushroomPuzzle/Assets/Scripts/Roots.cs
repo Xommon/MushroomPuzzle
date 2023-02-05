@@ -7,6 +7,8 @@ public class Roots : MonoBehaviour
     public float alpha = 0.75f;
     public CanvasGroup cg;
     public bool evil;
+    public bool connectedToStart;
+    public bool connectedToEnd;
 
     private void Start()
     {

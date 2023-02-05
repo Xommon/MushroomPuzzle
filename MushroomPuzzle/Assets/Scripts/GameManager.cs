@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Drop mushrooms
-        if (Input.GetMouseButtonDown(0) && heldItem != null && clearToPlace)
+        if (Input.GetMouseButtonDown(0) && heldItem != null && clearToPlace && gridSquareHoveredOver != null)
         {
             heldItem.GetComponent<CanvasGroup>().alpha = 1;
             foreach (Roots root in heldItem.GetComponentsInChildren<Roots>())

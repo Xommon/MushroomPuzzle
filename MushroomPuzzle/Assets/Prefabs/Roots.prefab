@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 09eed8da3e541cf498277df8e79ade95, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -103,7 +103,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 24, y: 24}
+  m_Size: {x: 25, y: 25}
   m_EdgeRadius: 0
 --- !u!225 &3976829451644507162
 CanvasGroup:
@@ -132,6 +132,8 @@ MonoBehaviour:
   alpha: 0.5
   cg: {fileID: 3976829451644507162}
   evil: 0
+  connectedToStart: 0
+  connectedToEnd: 0
 --- !u!50 &-4252583365978182868
 Rigidbody2D:
   serializedVersion: 4
