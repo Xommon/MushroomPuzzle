@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int score;
     public int scoreToAdd;
     public Text scoreText;
+    public GameObject poisonMushroomPrefab;
 
     void Start()
     {
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
         // Close game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            Quit();
         }
 
         // Update score
@@ -130,6 +132,10 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 15; i++)
         {
             mushroomOrder.Add(allMushrooms[Random.Range(0, allMushrooms.Length)]);
+            if (i % 3 == 0)
+            {
+                mushroomOrder.Add(poisonMushroomPrefab);
+            }
         }
     }
 
@@ -151,5 +157,15 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(AddScore());
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

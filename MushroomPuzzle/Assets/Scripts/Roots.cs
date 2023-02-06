@@ -64,16 +64,18 @@ public class Roots : MonoBehaviour
         Roots[] allRoots = FindObjectsOfType<Roots>();
         foreach (Roots root in allRoots)
         {
-            if (Vector2.Distance(rt.anchoredPosition, root.GetComponent<RectTransform>().anchoredPosition) < 20)
+            if (Vector2.Distance(rt.anchoredPosition, root.GetComponent<RectTransform>().anchoredPosition) < 1 && root != this)
             {
                 neighbourRoots.Add(root);
             }
         }
 
         // Spread poison
-        int i = Random.Range(0, neighbourRoots.Count);
-        Debug.Log("Poisoning " + neighbourRoots[i].name);
-        neighbourRoots[i].evil = true;
+        if (neighbourRoots.Count > 0)
+        {
+            int i = Random.Range(0, neighbourRoots.Count);
+            neighbourRoots[i].evil = true;
+        }
 
         // Destroy self
         Destroy(gameObject);
@@ -81,19 +83,4 @@ public class Roots : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("RootDeath");
         gameManager.AddScore();
     }
-
-    /*public IEnumerator DestroyEvilRootsAfterDelay()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if (alpha == 1 && evil)
-        {
-            Destroy(gameObject);
-            gameManager.scoreToAdd -= 10;
-            gameManager.AddScore();
-        }
-        else if (evil)
-        {
-            StartCoroutine(DestroyEvilRootsAfterDelay());
-        }
-    }*/
 }
